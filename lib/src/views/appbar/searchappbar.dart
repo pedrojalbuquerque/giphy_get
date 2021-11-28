@@ -108,34 +108,42 @@ class _SearchAppBarState extends State<SearchAppBar> {
               ? Container(height: 40.0, child: _giphyLogo())
               : Container(
                   height: 60.0,
-                  child: Column(
-                    children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(10),
-                        child: TextField(
-                          autofocus: _sheetProvider.initialExtent ==
-                              SheetProvider.maxExtent,
-                          focusNode: _focus,
-                          controller: _textEditingController,
-                          style: TextStyle(color: Colors.black),
-                          decoration: InputDecoration(
-                              filled: true,
-                              fillColor: Colors.grey[200],
-                              prefixIcon: _searchIcon(),
-                              hintStyle: TextStyle(color: Colors.black45),
-                              hintText: _tabProvider.searchText,
-                              contentPadding: EdgeInsets.only(
-                                  left: 15, bottom: 10.5, top: 10.5, right: 15),
-                              focusedBorder: InputBorder.none,
-                              enabledBorder: InputBorder.none,
-                              errorBorder: InputBorder.none,
-                              disabledBorder: InputBorder.none,
-                              border: InputBorder.none),
-                          autocorrect: false,
+                  child: Center(
+                    child: Stack(
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(10),
+                          child: TextField(
+                            autofocus: _sheetProvider.initialExtent ==
+                                SheetProvider.maxExtent,
+                            focusNode: _focus,
+                            controller: _textEditingController,
+                            style: TextStyle(color: Colors.black),
+                            decoration: InputDecoration(
+                                filled: true,
+                                fillColor: Colors.grey[200],
+                                prefixIcon: _searchIcon(),
+                                hintStyle: TextStyle(color: Colors.black45),
+                                hintText: _tabProvider.searchText,
+                                contentPadding: EdgeInsets.only(
+                                    left: 15,
+                                    bottom: 10.5,
+                                    top: 10.5,
+                                    right: 15),
+                                focusedBorder: InputBorder.none,
+                                enabledBorder: InputBorder.none,
+                                errorBorder: InputBorder.none,
+                                disabledBorder: InputBorder.none,
+                                border: InputBorder.none),
+                            autocorrect: false,
+                          ),
                         ),
-                      ),
-                      _giphyLogo(),
-                    ],
+                        Align(
+                          alignment: Alignment.centerRight,
+                          child: _giphyLogo(),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
         ],
