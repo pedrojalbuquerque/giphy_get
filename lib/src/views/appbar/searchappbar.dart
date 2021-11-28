@@ -141,7 +141,7 @@ class _SearchAppBarState extends State<SearchAppBar> {
 
   Widget _giphyLogo() {
     const basePath = "assets/img/";
-    String logoPath = "giphycolor.png";
+    String logoPath = "giphy_power.png";
     // String logoPath = Theme.of(context).brightness == Brightness.light
     //     ? "GIPHY_light.png"
     //     : "GIPHY_dark.png";
