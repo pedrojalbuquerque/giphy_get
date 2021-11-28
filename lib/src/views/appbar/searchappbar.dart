@@ -107,33 +107,35 @@ class _SearchAppBarState extends State<SearchAppBar> {
           _tabProvider.tabType == GiphyType.emoji
               ? Container(height: 40.0, child: _giphyLogo())
               : Container(
-                  height: 40.0,
-                  child: Center(
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(10),
-                      child: TextField(
-                        autofocus: _sheetProvider.initialExtent ==
-                            SheetProvider.maxExtent,
-                        focusNode: _focus,
-                        controller: _textEditingController,
-                        style: TextStyle(color: Colors.black),
-                        decoration: InputDecoration(
-                            filled: true,
-                            fillColor: Colors.grey[200],
-                            prefixIcon: _searchIcon(),
-                            suffix: _giphyLogo(),
-                            hintStyle: TextStyle(color: Colors.black45),
-                            hintText: _tabProvider.searchText,
-                            contentPadding: EdgeInsets.only(
-                                left: 15, bottom: 10.5, top: 10.5, right: 15),
-                            focusedBorder: InputBorder.none,
-                            enabledBorder: InputBorder.none,
-                            errorBorder: InputBorder.none,
-                            disabledBorder: InputBorder.none,
-                            border: InputBorder.none),
-                        autocorrect: false,
+                  height: 60.0,
+                  child: Column(
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(10),
+                        child: TextField(
+                          autofocus: _sheetProvider.initialExtent ==
+                              SheetProvider.maxExtent,
+                          focusNode: _focus,
+                          controller: _textEditingController,
+                          style: TextStyle(color: Colors.black),
+                          decoration: InputDecoration(
+                              filled: true,
+                              fillColor: Colors.grey[200],
+                              prefixIcon: _searchIcon(),
+                              hintStyle: TextStyle(color: Colors.black45),
+                              hintText: _tabProvider.searchText,
+                              contentPadding: EdgeInsets.only(
+                                  left: 15, bottom: 10.5, top: 10.5, right: 15),
+                              focusedBorder: InputBorder.none,
+                              enabledBorder: InputBorder.none,
+                              errorBorder: InputBorder.none,
+                              disabledBorder: InputBorder.none,
+                              border: InputBorder.none),
+                          autocorrect: false,
+                        ),
                       ),
-                    ),
+                      _giphyLogo(),
+                    ],
                   ),
                 ),
         ],
@@ -149,7 +151,7 @@ class _SearchAppBarState extends State<SearchAppBar> {
     return Center(
         child: Image.asset(
       "$basePath$logoPath",
-      width: 100.0,
+      width: 150.0,
       package: 'giphy_get',
     ));
   }
