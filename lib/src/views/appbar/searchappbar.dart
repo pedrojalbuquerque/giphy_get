@@ -121,6 +121,7 @@ class _SearchAppBarState extends State<SearchAppBar> {
                             filled: true,
                             fillColor: Colors.grey[200],
                             prefixIcon: _searchIcon(),
+                            suffix: _giphyLogo(),
                             hintStyle: TextStyle(color: Colors.black45),
                             hintText: _tabProvider.searchText,
                             contentPadding: EdgeInsets.only(
@@ -140,9 +141,10 @@ class _SearchAppBarState extends State<SearchAppBar> {
 
   Widget _giphyLogo() {
     const basePath = "assets/img/";
-    String logoPath = Theme.of(context).brightness == Brightness.light
-        ? "GIPHY_light.png"
-        : "GIPHY_dark.png";
+    String logoPath = "giphycolor.png";
+    // String logoPath = Theme.of(context).brightness == Brightness.light
+    //     ? "GIPHY_light.png"
+    //     : "GIPHY_dark.png";
 
     return Center(
         child: Image.asset(
