@@ -108,6 +108,8 @@ class _SearchAppBarState extends State<SearchAppBar> {
               ? Container(height: 40.0, child: _giphyLogo())
               : Container(
                   height: 60.0,
+                  width: MediaQuery.of(context).size.width * 0.95,
+                  color: Colors.red,
                   child: Stack(
                     children: [
                       ClipRRect(
