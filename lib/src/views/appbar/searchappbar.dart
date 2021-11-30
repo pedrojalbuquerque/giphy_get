@@ -105,38 +105,38 @@ class _SearchAppBarState extends State<SearchAppBar> {
             color: _searchBackgroundColor,
           ),
           _tabProvider.tabType == GiphyType.emoji
-              ? Container(height: 40.0, child: _giphyLogo())
+              ? Center(child: Container(height: 40.0, child: _giphyLogo()))
               : Container(
                   height: 60.0,
-                  width: MediaQuery.of(context).size.width * 0.95,
-                  color: Colors.red,
                   child: Stack(
                     children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(10),
-                        child: TextField(
-                          autofocus: _sheetProvider.initialExtent ==
-                              SheetProvider.maxExtent,
-                          focusNode: _focus,
-                          controller: _textEditingController,
-                          style: TextStyle(color: Colors.black),
-                          decoration: InputDecoration(
-                              filled: true,
-                              fillColor: Colors.grey[200],
-                              prefixIcon: _searchIcon(),
-                              hintStyle: TextStyle(color: Colors.black45),
-                              hintText: _tabProvider.searchText,
-                              contentPadding: EdgeInsets.only(
-                                  left: 15,
-                                  bottom: 10.5,
-                                  top: 10.5,
-                                  right: 15),
-                              focusedBorder: InputBorder.none,
-                              enabledBorder: InputBorder.none,
-                              errorBorder: InputBorder.none,
-                              disabledBorder: InputBorder.none,
-                              border: InputBorder.none),
-                          autocorrect: false,
+                      SizedBox(
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(10),
+                          child: TextField(
+                            autofocus: _sheetProvider.initialExtent ==
+                                SheetProvider.maxExtent,
+                            focusNode: _focus,
+                            controller: _textEditingController,
+                            style: TextStyle(color: Colors.black),
+                            decoration: InputDecoration(
+                                filled: true,
+                                fillColor: Colors.grey[200],
+                                prefixIcon: _searchIcon(),
+                                hintStyle: TextStyle(color: Colors.black45),
+                                hintText: _tabProvider.searchText,
+                                contentPadding: EdgeInsets.only(
+                                    left: 15,
+                                    bottom: 10.5,
+                                    top: 10.5,
+                                    right: MediaQuery.of(context).size.width * 0.4,),
+                                focusedBorder: InputBorder.none,
+                                enabledBorder: InputBorder.none,
+                                errorBorder: InputBorder.none,
+                                disabledBorder: InputBorder.none,
+                                border: InputBorder.none),
+                            autocorrect: false,
+                          ),
                         ),
                       ),
                       Align(
@@ -156,12 +156,11 @@ class _SearchAppBarState extends State<SearchAppBar> {
     //     ? "GIPHY_light.png"
     //     : "GIPHY_dark.png";
 
-    return Center(
-        child: Image.asset(
+    return Image.asset(
       "$basePath$logoPath",
       width: 150.0,
       package: 'giphy_get',
-    ));
+    );
   }
 
   Widget _searchIcon() {
