@@ -39,6 +39,7 @@ class _SearchAppBarState extends State<SearchAppBar> {
   late Color _searchBackgroundColor;
 
   //Is DarkMode
+  // ignore: unused_field
   late bool _isDarkMode;
 
   @override
@@ -60,7 +61,7 @@ class _SearchAppBarState extends State<SearchAppBar> {
   void didChangeDependencies() {
     //Colors
     _canvasColor = Theme.of(context).canvasColor;
-    _searchBackgroundColor = Theme.of(context).textTheme.bodyText1!.color!;
+    _searchBackgroundColor = Theme.of(context).textTheme.bodyLarge!.color!;
 
     //Is DarkMode
     _isDarkMode = Theme.of(context).brightness == Brightness.dark;

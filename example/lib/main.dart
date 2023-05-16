@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:giphy_get/giphy_get.dart';
 import 'package:giphy_get_demo/providers/theme_provider.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -36,20 +35,20 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  MyHomePage({required this.title});
   final String title;
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  ThemeProvider themeProvider;
+  late ThemeProvider themeProvider;
 
   //Gif
-  GiphyGif currentGif;
+  late GiphyGif currentGif;
 
   // Giphy Client
-  GiphyClient client;
+  late GiphyClient client;
 
   // Random ID
   String randomId = "";
@@ -116,9 +115,9 @@ class _MyHomePageState extends State<MyHomePage> {
             SizedBox(
               height: 10,
             ),
-            currentGif != null
+            currentGif.images != null
                 ? Image.network(
-                    currentGif.images.original.webp,
+                    currentGif.images!.original!.webp!,
                     headers: {'accept': 'image/*'},
                   )
                 : Text("No GIF")
@@ -127,14 +126,14 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       floatingActionButton: FloatingActionButton(
           onPressed: () async {
-            GiphyGif gif = await GiphyGet.getGif(
+            GiphyGif? gif = await GiphyGet.getGif(
               context: context,
               apiKey: giphy_api_key, //YOUR API KEY HERE
               lang: GiphyLanguage.spanish,
             );
-            if (gif != null && mounted) {
+            if (mounted) {
               setState(() {
-                currentGif = gif;
+                currentGif = gif!;
               });
             }
           },
